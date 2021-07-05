@@ -13,7 +13,7 @@ class TestRandomStrings(unittest.TestCase):
     NOUPPER_LOWER_NODIGIT_REGEX = r"^[a-z]+$"
     UPPER_NOLOWER_NODIGIT_REGEX = r"^[A-Z]+$"
     valid_lengths = [8, 16, 32, 64, 512, 2048, True]  # True returns length 1
-    invalid_lengths = [0, -5, "hello", 3.14, {}, None, False]
+    invalid_lengths = [0, -5, "hello", 3.14, {}, None, False, "", "  "]
 
     def _string_lengths(self, length, *args, regex="", **kwargs):
         string = get_random_string(length, *args, **kwargs)
