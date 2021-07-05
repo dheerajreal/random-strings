@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from random_strings import get_random_string
+from random_strings import get_random_hex, get_random_string, get_random_uuid, _DEFAULT_ENTROPY
 
 
 class TestRandomStrings(unittest.TestCase):
@@ -63,6 +63,37 @@ class TestRandomStrings(unittest.TestCase):
         for length in self.valid_lengths:
             self._string_lengths(
                 length, regex=self.UPPER_NOLOWER_NODIGIT_REGEX, lower=False, digit=False)
+
+    def test_upper_lower_digit_false(self):
+        for length in self.valid_lengths:
+            with self.assertRaises(ValueError):
+                get_random_string(length, upper=False,
+                                  lower=False, digit=False)
+
+
+class TestRandomHexAndUUID(unittest.TestCase):
+    HEX_REGEX = r"^[0-9a-f]+$"
+    UUID_REGEX_DASH = r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    UUID_REGEX_NODASH = r"^[0-9a-f]{32}$"
+
+    def test_random_hex(self):
+        for bytes_len in [False, None, 1, 3, 5, 8, 14, 25, 100, 2500]:
+            generated_hex = get_random_hex(nbytes=bytes_len)
+            match = re.fullmatch(self.HEX_REGEX, generated_hex)
+            if not bytes_len:
+                bytes_len = _DEFAULT_ENTROPY
+            self.assertIsNotNone(match)
+            self.assertEqual(len(generated_hex), bytes_len * 2)
+
+    def test_random_uuid(self):
+        generated_uuid = get_random_uuid()
+        match = re.fullmatch(self.UUID_REGEX_DASH, generated_uuid)
+        self.assertIsNotNone(match)
+
+    def test_random_uuid_nodash(self):
+        generated_uuid = get_random_uuid(dashes=False)
+        match = re.fullmatch(self.UUID_REGEX_NODASH, generated_uuid)
+        self.assertIsNotNone(match)
 
 
 if __name__ == "__main__":
