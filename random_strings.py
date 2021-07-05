@@ -11,7 +11,7 @@ def get_random_string(
     upper: bool = True,
     digit: bool = True
 ) -> str:
-    """Generate random strings suitable for cryptographic use.
+    """Generate random string suitable for cryptographic use.
 
     Args:
         length (int, required):
@@ -25,7 +25,8 @@ def get_random_string(
 
     Raises:
         ValueError:
-            When integer less than zero or non-integer value for length is given.
+            When integer less than one or non-integer value for length is given.
+            When character list to choose from is empty.
 
     Returns:
         str: Cryptographically-secure string of given length.
@@ -39,6 +40,8 @@ def get_random_string(
         chars = chars + string.ascii_uppercase
     if digit:
         chars = chars + string.digits
+    if not chars:
+        raise ValueError("Empty character list to choose from")
     return "".join(secrets.choice(chars) for i in range(length))
 
 
