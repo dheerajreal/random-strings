@@ -27,48 +27,78 @@ class TestRandomStrings(unittest.TestCase):
 
     def test_valid_string_lengths(self):
         for length in self.valid_lengths:
-            self._string_lengths(length, regex=self.UPPER_LOWER_DIGIT_REGEX)
+            self._string_lengths(
+                length,
+                regex=self.UPPER_LOWER_DIGIT_REGEX
+            )
 
     def test_invalid_string_lengths(self):
         for length in self.invalid_lengths:
             self._invalid_string_lengths(
-                length, regex=self.UPPER_LOWER_DIGIT_REGEX)
+                length,
+                regex=self.UPPER_LOWER_DIGIT_REGEX
+            )
 
     def test_upper_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.NOUPPER_LOWER_DIGIT_REGEX, upper=False)
+                length,
+                regex=self.NOUPPER_LOWER_DIGIT_REGEX,
+                upper=False
+            )
 
     def test_lower_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.UPPER_NOLOWER_DIGIT_REGEX, lower=False)
+                length,
+                regex=self.UPPER_NOLOWER_DIGIT_REGEX,
+                lower=False
+            )
 
     def test_digit_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.UPPER_LOWER_NODIGIT_REGEX, digit=False)
+                length,
+                regex=self.UPPER_LOWER_NODIGIT_REGEX,
+                digit=False
+            )
 
     def test_upper_lower_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.NOUPPER_NOLOWER_DIGIT_REGEX, upper=False, lower=False)
+                length,
+                regex=self.NOUPPER_NOLOWER_DIGIT_REGEX,
+                upper=False,
+                lower=False
+            )
 
     def test_upper_digit_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.NOUPPER_LOWER_NODIGIT_REGEX, upper=False, digit=False)
+                length,
+                regex=self.NOUPPER_LOWER_NODIGIT_REGEX,
+                upper=False,
+                digit=False
+            )
 
     def test_lower_digit_false(self):
         for length in self.valid_lengths:
             self._string_lengths(
-                length, regex=self.UPPER_NOLOWER_NODIGIT_REGEX, lower=False, digit=False)
+                length,
+                regex=self.UPPER_NOLOWER_NODIGIT_REGEX,
+                lower=False,
+                digit=False
+            )
 
     def test_upper_lower_digit_false(self):
         for length in self.valid_lengths:
             with self.assertRaises(ValueError):
-                get_random_string(length, upper=False,
-                                  lower=False, digit=False)
+                get_random_string(
+                    length,
+                    upper=False,
+                    lower=False,
+                    digit=False
+                )
 
 
 class TestRandomHexAndUUID(unittest.TestCase):
@@ -97,4 +127,5 @@ class TestRandomHexAndUUID(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    print("running tests")
     unittest.main()
