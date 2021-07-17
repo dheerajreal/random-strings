@@ -10,6 +10,9 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python_version: [3.6, 3.9]
     steps:
       - name: Check out source code
         uses: actions/checkout@v2
@@ -17,7 +20,7 @@ jobs:
       - name: install python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.6"
+          python-version: ${{ matrix.python_version }}
           architecture: "x64"
 
       - name: flake8 Linter
