@@ -2,7 +2,7 @@ import secrets
 import string
 from uuid import uuid4
 
-__all__ = ["get_random_string", "get_random_hex", "get_random_uuid"]
+__all__ = ["get_random_string", "get_random_hex", "random_uuid"]
 
 
 def get_random_string(
@@ -64,7 +64,7 @@ def get_random_hex(nbytes: int = None) -> str:
     return secrets.token_hex(nbytes=nbytes)
 
 
-def get_random_uuid(dashes: bool = True) -> str:
+def random_uuid(dashes: bool = True) -> str:
     """Generate random uuid string suitable for cryptographic use.
 
     Args:

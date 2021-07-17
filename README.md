@@ -36,10 +36,10 @@ SECURE_TOKEN = get_random_hex(128)
 >>> get_random_hex(16)
 'ec583ef0aaa226cba9cb07e3dc2e623c'
 
->>> get_random_uuid()
+>>> random_uuid()
 '85273146-3ad8-489f-9964-e7af16ab6a26'
 
->>> get_random_uuid(dashes=False)
+>>> random_uuid(dashes=False)
 'a33ee36ad08242e4a2a819147f084a51'
 ```
 

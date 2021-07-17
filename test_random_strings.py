@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from random_strings import get_random_hex, get_random_string, get_random_uuid, _DEFAULT_ENTROPY
+from random_strings import get_random_hex, get_random_string, random_uuid, _DEFAULT_ENTROPY
 
 
 class TestRandomStrings(unittest.TestCase):
@@ -116,12 +116,12 @@ class TestRandomHexAndUUID(unittest.TestCase):
             self.assertEqual(len(generated_hex), bytes_len * 2)
 
     def test_random_uuid(self):
-        generated_uuid = get_random_uuid()
+        generated_uuid = random_uuid()
         match = re.fullmatch(self.UUID_REGEX_DASH, generated_uuid)
         self.assertIsNotNone(match)
 
     def test_random_uuid_nodash(self):
-        generated_uuid = get_random_uuid(dashes=False)
+        generated_uuid = random_uuid(dashes=False)
         match = re.fullmatch(self.UUID_REGEX_NODASH, generated_uuid)
         self.assertIsNotNone(match)
 
