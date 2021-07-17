@@ -2,6 +2,12 @@
 
 Generate strings that are ✨ random ✨
 
+## how to install
+
+```bash
+$ pip install random-strings
+```
+
 ## how to use
 
 ```python
