@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from random_strings import get_random_hex, get_random_string, random_uuid, _DEFAULT_ENTROPY
+from random_strings import random_hex, get_random_string, random_uuid, _DEFAULT_ENTROPY
 
 
 class TestRandomStrings(unittest.TestCase):
@@ -108,7 +108,7 @@ class TestRandomHexAndUUID(unittest.TestCase):
 
     def test_random_hex(self):
         for bytes_len in [False, None, 1, 3, 5, 8, 14, 25, 100, 2500]:
-            generated_hex = get_random_hex(nbytes=bytes_len)
+            generated_hex = random_hex(nbytes=bytes_len)
             match = re.fullmatch(self.HEX_REGEX, generated_hex)
             if not bytes_len:
                 bytes_len = _DEFAULT_ENTROPY

@@ -15,7 +15,7 @@ Generate strings that are ✨ random ✨
 ## advanced usage
 
 ```python
-from random_strings import get_random_hex, get_random_string as randstr
+from random_strings import random_hex, get_random_string as randstr
 
 password = randstr(16)
 SECRET_KEY = randstr(64)
@@ -23,7 +23,7 @@ verification_code = randstr(12)
 verification_code = randstr(12,upper=False)
 verification_code = randstr(12,lower=False,digit=False)
 verification_code = randstr(512)
-SECURE_TOKEN = get_random_hex(128)
+SECURE_TOKEN = random_hex(128)
 
 ```
 
@@ -33,7 +33,7 @@ SECURE_TOKEN = get_random_hex(128)
 
 >>> from random_strings import *
 
->>> get_random_hex(16)
+>>> random_hex(16)
 'ec583ef0aaa226cba9cb07e3dc2e623c'
 
 >>> random_uuid()
