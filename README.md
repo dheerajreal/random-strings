@@ -20,9 +20,8 @@ from random_strings import random_hex, random_string as randstr
 password = randstr(16)
 SECRET_KEY = randstr(64)
 verification_code = randstr(12)
-verification_code = randstr(12,upper=False)
-verification_code = randstr(12,lower=False,digit=False)
-verification_code = randstr(512)
+verification_code = randstr(12,upper=False) # no uppercase letters
+verification_code = randstr(12,lower=False,digit=False) # only uppercase letters
 SECURE_TOKEN = random_hex(128)
 
 ```
