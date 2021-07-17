@@ -1,7 +1,7 @@
 import re
 import unittest
 
-from random_strings import random_hex, get_random_string, random_uuid, _DEFAULT_ENTROPY
+from random_strings import random_hex, random_string, random_uuid, _DEFAULT_ENTROPY
 
 
 class TestRandomStrings(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestRandomStrings(unittest.TestCase):
     invalid_lengths = [0, -5, "hello", 3.14, {}, None, False, "", "  "]
 
     def _string_lengths(self, length, *args, regex="", **kwargs):
-        string = get_random_string(length, *args, **kwargs)
+        string = random_string(length, *args, **kwargs)
         match = re.fullmatch(regex, string)
         self.assertIsNotNone(match)
         self.assertEqual(len(string), length)
@@ -93,7 +93,7 @@ class TestRandomStrings(unittest.TestCase):
     def test_upper_lower_digit_false(self):
         for length in self.valid_lengths:
             with self.assertRaises(ValueError):
-                get_random_string(
+                random_string(
                     length,
                     upper=False,
                     lower=False,

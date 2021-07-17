@@ -6,8 +6,8 @@ Generate strings that are ✨ random ✨
 
 ```python
 
->>> from random_strings import get_random_string
->>> get_random_string(5)
+>>> from random_strings import random_string
+>>> random_string(5)
 'YSuz5'
 
 ```
@@ -15,7 +15,7 @@ Generate strings that are ✨ random ✨
 ## advanced usage
 
 ```python
-from random_strings import random_hex, get_random_string as randstr
+from random_strings import random_hex, random_string as randstr
 
 password = randstr(16)
 SECRET_KEY = randstr(64)

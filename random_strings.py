@@ -2,10 +2,10 @@ import secrets
 import string
 from uuid import uuid4
 
-__all__ = ["get_random_string", "random_hex", "random_uuid"]
+__all__ = ["random_string", "random_hex", "random_uuid"]
 
 
-def get_random_string(
+def random_string(
     length: int,
     lower: bool = True,
     upper: bool = True,
