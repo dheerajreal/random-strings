@@ -100,6 +100,25 @@ class TestRandomStrings(unittest.TestCase):
                     digit=False
                 )
 
+    def test_custom_character_string(self):
+        for length in self.valid_lengths:
+            self._string_lengths(
+                length,
+                regex=r"^\S+$",
+                character_string="#$^%&@*()[]"
+            )
+            string = random_string(
+                length,
+                character_string="#$^%&@*()[]"
+            )
+            self.assertIsNone(re.fullmatch(
+                self.UPPER_LOWER_DIGIT_REGEX, string))
+            string = random_string(
+                length,
+                character_string="ABCD"
+            )
+            self.assertIsNotNone(re.fullmatch(r"^[ABCD]+$", string))
+
 
 class TestRandomHexAndUUID(unittest.TestCase):
     HEX_REGEX = r"^[0-9a-f]+$"

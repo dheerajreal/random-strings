@@ -9,7 +9,8 @@ def random_string(
     length: int,
     lower: bool = True,
     upper: bool = True,
-    digit: bool = True
+    digit: bool = True,
+    character_string: str = None,
 ) -> str:
     """Generate random string suitable for cryptographic use.
 
@@ -22,6 +23,10 @@ def random_string(
             Should uppercase characters(A-Z) be included. Defaults to True.
         digit (bool, optional):
             Should digit characters(0-9) be included. Defaults to True.
+        character_string (str, optional):
+            String of characters from which random characters are chosen.
+            If character_string is provided upper/lower/digit parameters are ignored.
+
 
     Raises:
         ValueError:
@@ -40,6 +45,9 @@ def random_string(
         chars = chars + string.ascii_uppercase
     if digit:
         chars = chars + string.digits
+    if character_string and isinstance(character_string, str):
+        # if character_string is provided ignore upper/lower/digit parameters
+        chars = character_string
     if not chars:
         raise ValueError("Empty character list to choose from")
     return "".join(secrets.choice(chars) for i in range(length))
