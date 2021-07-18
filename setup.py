@@ -7,7 +7,7 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 GITHUB_URL = "https://github.com/dheerajreal/random-strings/"
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 
 setup(
@@ -37,7 +37,7 @@ setup(
     ],
 
     project_urls={
-        'Bug Reports': GITHUB_URL + 'issues',
+        'Bug Reports': GITHUB_URL + 'issues/',
         'Source': GITHUB_URL,
     },
 )
