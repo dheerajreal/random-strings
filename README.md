@@ -61,3 +61,6 @@ verification_code = random_string(12,character_string=characters)
 Generated strings are suitable for cryptographically secure usecase
 
 See `os.urandom`, `random.SystemRandom` and PEP 506 for more details on how it works.
+
+also, this package is named `random-strings`.
+There are other packages on pypi with similar names but they don't do the same thing.
