@@ -21,14 +21,22 @@ $ pip install random-strings
 ## advanced usage
 
 ```python
-from random_strings import random_hex, random_string as randstr
+from random_strings import random_hex, random_string
 
-password = randstr(16)
-SECRET_KEY = randstr(64)
-verification_code = randstr(12)
-verification_code = randstr(12,upper=False) # no uppercase letters
-verification_code = randstr(12,lower=False,digit=False) # only uppercase letters
+password = random_string(16)
+SECRET_KEY = random_string(64)
+
+# hexadecimal characters
 SECURE_TOKEN = random_hex(128)
+
+# no uppercase letters
+verification_code = random_string(12,upper=False)
+# only uppercase letters
+verification_code = random_string(12,lower=False,digit=False)
+
+# custom characters
+characters = '23456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+verification_code = random_string(12,character_string=characters)
 
 ```
 
