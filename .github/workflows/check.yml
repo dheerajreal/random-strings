@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python_version: [3.6, 3.9]
+        python_version: [3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14]
     steps:
       - name: Check out source code
         uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
           architecture: "x64"
 
       - name: flake8 Linter
-        run: pip install flake8 && flake8 --statistics --count --ignore=E501
-      
+        run: pip install flake8 && flake8 --statistics --count
+
       - name: Run tests
         run: python3 test_random_strings.py
