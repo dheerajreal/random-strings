@@ -10,7 +10,7 @@ def random_string(
     lower: bool = True,
     upper: bool = True,
     digit: bool = True,
-    character_string: str = None,
+    character_string: str = "",
 ) -> str:
     """Generate random string suitable for cryptographic use.
 
@@ -50,13 +50,13 @@ def random_string(
         chars = character_string
     if not chars:
         raise ValueError("Empty character list to choose from")
-    return "".join(secrets.choice(chars) for i in range(length))
+    return "".join(secrets.choice(chars) for _ in range(length))
 
 
 _DEFAULT_ENTROPY = 64
 
 
-def random_hex(nbytes: int = None) -> str:
+def random_hex(nbytes: int = _DEFAULT_ENTROPY) -> str:
     """Generate random hexadecimal string suitable for cryptographic use.
 
     Args:
