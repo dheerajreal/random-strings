@@ -10,7 +10,7 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 GITHUB_URL = "https://github.com/dheerajreal/random-strings/"
-VERSION = '0.1.1'
+VERSION = '0.2.0'
 
 
 class PublishCommand(Command):
@@ -20,7 +20,7 @@ class PublishCommand(Command):
     user_options = []
 
     @staticmethod
-    def status(s):
+    def status(s: str):
         """Print things in bold."""
         print("\033[1m{0}\033[0m".format(s))
 
@@ -38,7 +38,7 @@ class PublishCommand(Command):
             print("No older builds exist, Do nothing")
 
         self.status("Building Source and Wheel")
-        os.system("{0} setup.py sdist bdist_wheel".format(sys.executable))
+        os.system("{0} -m build".format(sys.executable))
 
         self.status("Uploading to PyPi using Twine")
         os.system("twine upload dist/*")
@@ -57,18 +57,20 @@ setup(
     python_requires='>=3.6, <4',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    license_file="LICENSE.txt",
-
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: Beta',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         'Programming Language :: Python :: 3 :: Only'
     ],
 
