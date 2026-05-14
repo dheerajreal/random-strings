@@ -21,6 +21,7 @@ setup(
     python_requires=">=3.6, <4",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    # https://pypi.org/classifiers/
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",

@@ -2,6 +2,10 @@
 
 Generate strings that are ✨ random ✨
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/random-strings)
+
+![Pepy Total Downloads](https://img.shields.io/pepy/dt/random-strings) ![PyPI - Downloads](https://img.shields.io/pypi/dm/random-strings) ![PyPI - License](https://img.shields.io/pypi/l/random-strings)
+
 ## how to install
 
 ```bash
